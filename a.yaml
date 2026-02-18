@@ -1,0 +1,73 @@
+title: Qqq
+kind: ruleset
+description: |
+  Lorem ipsum
+provides:
+  ruleset: Qqq
+requires: []
+deps:
+- common.ecl
+options:
+- id: Qqq.X1
+  kind: group
+  children:
+  - id: Qqq.X1.Y1
+    kind: flag
+    default: true
+    description: Lorem ipsum
+  - id: Qqq.X1.Y2
+    kind: flag
+    description: Lorem ipsum
+- id: Qqq.X2
+  kind: group
+  children:
+  - id: Qqq.X2.Y1
+    kind: flag
+    description: Lorem ipsum
+content:
+- |
+  -eval_file=common.ecl
+  -doc_begin="Some common doc."
+#- if:
+#    any:
+#    - flag: Qqq.X1.Y1
+#    - flag: Qqq.X1.Y2
+#  then: |
+#    # would do: -config=Qqq.X1,something
+#- if:
+#    flag: Qqq.X1.Y1
+#  then: |
+#    # would do: -enable=Qqq.X1.Y1
+#  else: |
+#    # Qqq.X1.Y1 is not enabled
+#- if: Qqq.X1.Y1 # if given as string, it is treated as flag
+#  then: |
+#    # would do: -enable=Qqq.X1.Y1
+#  else: |
+#    # would do: # Qqq.X1.Y1 is not enabled
+#- if: X
+#  then:
+#    if: Y
+#    then: ...
+#    else: ...
+#  else:
+#    if: Z
+#    then: ...
+#    else: ...
+# ...
+- for: flag
+  in: ALL_FLAGS
+  yield:
+    if:
+      all:
+      - $flag # <- this line effectively expands to "if: Qqq.X1.Y1", "if: Qqq.X1.Y2", ...
+      # check that it starts with "Qqq." to avoid yielding flags from other rulesets
+      - starts_with:
+          str: $flag
+          prefix: Qqq.
+    then: |
+      -enable=$flag
+    else: |
+      # $flag is not enabled
+- |
+  -doc_end
