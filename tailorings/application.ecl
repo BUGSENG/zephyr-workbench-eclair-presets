@@ -1,8 +1,8 @@
 ```ECL:
-title: Zephyr Tailoring
+title: Zephyr Application Tailoring
 kind: tailoring
 description: |
-  Tailoring for Zephyr projects.
+  Tailoring for Zephyr applications.
 
   This presets includes common tailoring settings for Zephyr projects, derived from the [Zephyr ECLAIR integration](https://github.com/zephyrproject-rtos/zephyr/tree/v4.3.0/cmake/sca/eclair/ECL) as of [Zephyr 4.3.0](https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.3.0)).
 authors:
@@ -35,8 +35,8 @@ options:
     standard or style rule.
 ```
 
-if(zephyr_deviations, eval_file("common/deviations.ecl"))
-if(out_of_initial_scope, eval_file("common/out_of_initial_scope.ecl"))
+if(zephyr_deviations, eval_file("../common/deviations.ecl"))
+if(out_of_initial_scope, eval_file("../common/out_of_initial_scope.ecl"))
 
 if(exclude_zephyr_log_macros_reports, progn(
   doc("Exclude reports located in the expansion of Zephyr log macros."),

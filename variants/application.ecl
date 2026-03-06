@@ -1,8 +1,8 @@
 ````ECL:
-title: Zephyr Analysis
+title: Application Analysis
 kind: variant
 description: |
-  Common settings for Zephyr analysis.
+  Common settings for Zephyr applications analysis.
 
   This variant includes common configurations used for the analysis of Zephyr projects.
 authors:
@@ -83,12 +83,12 @@ options:
   default: true
 ````
 
-if(zephyr_adopted_code, eval_file("common/adopted_code.ecl"))
-if(zephyr_adopted_deviations, eval_file("common/adopted_deviations.ecl"))
-if(zephyr_call_properties, eval_file("common/call_properties.ecl"))
-if(extra_definitions, eval_file("common/extra.ecl"))
-if(zephyr_language_extensions, eval_file("common/language_extensions.ecl"))
-if(zephyr_common_config, eval_file("common/zephyr_common_config.ecl"))
+if(zephyr_adopted_code, eval_file("../common/adopted_code.ecl"))
+if(zephyr_adopted_deviations, eval_file("../common/adopted_deviations.ecl"))
+if(zephyr_call_properties, eval_file("../common/call_properties.ecl"))
+if(extra_definitions, eval_file("../common/extra.ecl"))
+if(zephyr_language_extensions, eval_file("../common/language_extensions.ecl"))
+if(zephyr_common_config, eval_file("../common/zephyr_common_config.ecl"))
 
 # TODO condition
 if(exclude_build_tree, progn(
