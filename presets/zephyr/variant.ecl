@@ -80,6 +80,7 @@ options:
   description: |
     This option prevents ECLAIR from visiting the top level declarations of
     external files.
+  default: true
 ````
 
 if(zephyr_adopted_code, eval_file("common/adopted_code.ecl"))

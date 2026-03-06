@@ -37,6 +37,7 @@ options:
   description: |
     This option prevents ECLAIR from visiting the top level declarations of
     external files.
+  default: true
 ````
 
 -setq=app_dir,getenv("ZEPHYR_WORKBENCH_PROJECT_ROOT_DIR")
