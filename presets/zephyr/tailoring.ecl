@@ -40,7 +40,7 @@ if(out_of_initial_scope, eval_file("common/out_of_initial_scope.ecl"))
 
 if(exclude_zephyr_log_macros_reports, progn(
   doc("Exclude reports located in the expansion of Zephyr log macros."),
-  reports+({"hide", "any_area(any_loc(any_exp(macro(name(LOG_MODULE_DECLARE||LOG_ERR||z_tmcvt_divisor)))))"}) # or adopted?
+  reports+({"hide", "any_area(any_loc(any_exp(macro(^LOG_.*$||^Z_LOG.*$||name(z_tmcvt_divisor)))))"}) # or adopted?
 ))
 #-doc_begin="Allow Zephyr macros to be not MISRA compliant."
 #-config=MC4.R10.1,reports+={adopted, "any_area(any_loc(any_exp(macro(name(LOG_MODULE_DECLARE||LOG_ERR||z_tmcvt_divisor)))))"}

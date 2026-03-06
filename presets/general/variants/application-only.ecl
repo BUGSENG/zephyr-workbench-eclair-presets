@@ -39,7 +39,8 @@ options:
     external files.
 ````
 
-#-setq=app_dir,getenv("ZEPHYR_WORKBENCH_PROJECT_ROOT_DIR")
+-setq=app_dir,getenv("ZEPHYR_WORKBENCH_PROJECT_ROOT_DIR")
+-file_tag+={application_files, concat("^", app_dir, ".*$")}
 
 if(exclude_external_reports, progn(
   reports({"hide", "all_exp_external"})
@@ -55,9 +56,6 @@ if(exclude_external_frames, progn(
 ))
 
 if(exclude_external_files, progn(
-  source_files({"hide", "external"})
-
-  ## TODO regex may need escaping
-  #source_files+({"hide", concat("!^", app_dir, ".*$")}),
-  #print(concat("!^", app_dir, ".*$"))
+  source_files+({"hide", "external"})
+  source_files+({"hide", "!application_files"})
 ))

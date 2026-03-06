@@ -99,6 +99,8 @@ if(exclude_build_tree, progn(
 ))
 
 # from application-only variant
+-setq=app_dir,getenv("ZEPHYR_WORKBENCH_PROJECT_ROOT_DIR")
+-file_tag+={application_files, concat("^", app_dir, ".*$")}
 if(exclude_external_reports, progn(
   reports({"hide", "all_exp_external"})
 ))
@@ -106,5 +108,6 @@ if(exclude_external_frames, progn(
   frames+({"hide", "main(external)"})
 ))
 if(exclude_external_files, progn(
-  source_files({"hide", "external"})
+  source_files+({"hide", "external"})
+  source_files+({"hide", "!application_files"})
 ))
