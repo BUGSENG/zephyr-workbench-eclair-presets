@@ -44,22 +44,34 @@ Another options is to maintain the presets as local files in your project and im
 <!-- NOTE: this list can be generated with ./tools/list_templates.bash -->
 
 Provided _rulesets_ include:
-- [`./rulesets/B.BUGFIND.ecl`](./rulesets/B.BUGFIND.ecl): ECLAIR Bug Finder
-- [`./rulesets/B.BUGFIND-sel.ecl`](./rulesets/B.BUGFIND-sel.ecl): ECLAIR Bug Finder (selection)
-- [`./rulesets/HIS.ecl`](./rulesets/HIS.ecl): HIS metrics
-- [`./rulesets/HIS-sel.ecl`](./rulesets/HIS-sel.ecl): HIS metrics (selected)
-- [`./rulesets/MC2.ecl`](./rulesets/MC2.ecl): MISRA C:2004 (full)
-- [`./rulesets/MC3.ecl`](./rulesets/MC3.ecl): MISRA C:2012 (full)
-- [`./rulesets/MC4.ecl`](./rulesets/MC4.ecl): MISRA C:2025 (full)
-- [`./rulesets/MC4-sel.ecl`](./rulesets/MC4-sel.ecl): MISRA C:2025 (selection)
-- [`./rulesets/MET.HIS.ecl`](./rulesets/MET.HIS.ecl): HIS metrics
-- [`./rulesets/METRICS.ecl`](./rulesets/METRICS.ecl): BUGSENG and HIS metrics
-- [`./rulesets/METRICS-sel.ecl`](./rulesets/METRICS-sel.ecl): BUGSENG and HIS metrics (selection)
-- [`./rulesets/MP1.ecl`](./rulesets/MP1.ecl): MISRA C++:2008 (full)
-- [`./rulesets/MP2.ecl`](./rulesets/MP2.ecl): MISRA C++:2012 (full)
-- [`./rulesets/MP2-sel.ecl`](./rulesets/MP2-sel.ecl): MISRA C++:2012 (selection)
-- [`./rulesets/NC3.ecl`](./rulesets/NC3.ecl): BARR-C 2018 (full)
-- [`./rulesets/NC3-sel.ecl`](./rulesets/NC3-sel.ecl): BARR-C 2018 (selection)
+- [`./presets/general/rulesets/B.BUGFIND.ecl`](./presets/general/rulesets/B.BUGFIND.ecl): ECLAIR Bug Finder
+- [`./presets/general/rulesets/B.BUGFIND-sel.ecl`](./presets/general/rulesets/B.BUGFIND-sel.ecl): ECLAIR Bug Finder (selection)
+- [`./presets/general/rulesets/HIS.ecl`](./presets/general/rulesets/HIS.ecl): HIS metrics
+- [`./presets/general/rulesets/HIS-sel.ecl`](./presets/general/rulesets/HIS-sel.ecl): HIS metrics (selected)
+- [`./presets/general/rulesets/MC2.ecl`](./presets/general/rulesets/MC2.ecl): MISRA C:2004 (full)
+- [`./presets/general/rulesets/MC3.ecl`](./presets/general/rulesets/MC3.ecl): MISRA C:2012 (full)
+- [`./presets/general/rulesets/MC4.ecl`](./presets/general/rulesets/MC4.ecl): MISRA C:2025 (full)
+- [`./presets/general/rulesets/MC4-sel.ecl`](./presets/general/rulesets/MC4-sel.ecl): MISRA C:2025 (selection)
+- [`./presets/general/rulesets/MET.HIS.ecl`](./presets/general/rulesets/MET.HIS.ecl): HIS metrics
+- [`./presets/general/rulesets/METRICS.ecl`](./presets/general/rulesets/METRICS.ecl): BUGSENG and HIS metrics
+- [`./presets/general/rulesets/METRICS-sel.ecl`](./presets/general/rulesets/METRICS-sel.ecl): BUGSENG and HIS metrics (selection)
+- [`./presets/general/rulesets/MP1.ecl`](./presets/general/rulesets/MP1.ecl): MISRA C++:2008 (full)
+- [`./presets/general/rulesets/MP2.ecl`](./presets/general/rulesets/MP2.ecl): MISRA C++:2012 (full)
+- [`./presets/general/rulesets/MP2-sel.ecl`](./presets/general/rulesets/MP2-sel.ecl): MISRA C++:2012 (selection)
+- [`./presets/general/rulesets/NC3.ecl`](./presets/general/rulesets/NC3.ecl): BARR-C 2018 (full)
+- [`./presets/general/rulesets/NC3-sel.ecl`](./presets/general/rulesets/NC3-sel.ecl): BARR-C 2018 (selection)
+- [`./presets/general/tailorings/zise/tailoring.ecl`](./presets/general/tailorings/zise/tailoring.ecl): ZiSE25 Tailoring
+- [`./presets/general/variants/internal-only.ecl`](./presets/general/variants/internal-only.ecl): Internal-only analysis
+- [`./presets/general/variants/zise/variant.ecl`](./presets/general/variants/zise/variant.ecl): ZiSE25 Selection
+- [`./presets/zephyr/rulesets/first_analysis.ecl`](./presets/zephyr/rulesets/first_analysis.ecl): Zephyr First Analysis Selection
+- [`./presets/zephyr/rulesets/heavy_STU.ecl`](./presets/zephyr/rulesets/heavy_STU.ecl): Zephyr Heavy STU Selection
+- [`./presets/zephyr/rulesets/HIS.ecl`](./presets/zephyr/rulesets/HIS.ecl): Zephyr HIS Metrics Selection
+- [`./presets/zephyr/rulesets/std_lib.ecl`](./presets/zephyr/rulesets/std_lib.ecl): Zephyr Std Lib Selection
+- [`./presets/zephyr/rulesets/STU.ecl`](./presets/zephyr/rulesets/STU.ecl): Zephyr STU Selection
+- [`./presets/zephyr/rulesets/WP.ecl`](./presets/zephyr/rulesets/WP.ecl): Zephyr WP Selection
+- [`./presets/zephyr/rulesets/zephyr_guidelines.ecl`](./presets/zephyr/rulesets/zephyr_guidelines.ecl): Zephyr Guidelines Selection
+- [`./presets/zephyr/tailoring.ecl`](./presets/zephyr/tailoring.ecl): Zephyr Tailoring
+- [`./presets/zephyr/variant.ecl`](./presets/zephyr/variant.ecl): Zephyr Analysis
 
 Provided _variants_ include:
 - [`./variants/zise/variant.ecl`](./variants/zise/variant.ecl): ZiSE25 Selection
