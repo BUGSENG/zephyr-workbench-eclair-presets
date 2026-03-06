@@ -13,9 +13,9 @@ recommended ways are:
 
 ### Using a custom repository
 
-You can [fork this repository](https://github.com/BUGSENG/zephyr-workbench-eclair-presets/fork) and create your own presets in the fork, which can then be imported in the ECLAIR Manager panel by adding the fork as a remote and importing the presets from there.
+You can either start from scratch or by [forking this repository](https://github.com/BUGSENG/zephyr-workbench-eclair-presets/fork) and create your own presets in the fork, which can then be imported in the ECLAIR Manager panel by adding the fork as a remote and importing the presets from there.
 
 ### Using local files
 
-Another options is to maintain the presets as local files in your project and import them in the ECLAIR Manager as standalone files.
+Another option is to maintain the presets as local files in your project and import them in the ECLAIR Manager as standalone files.
 
