@@ -1,4 +1,4 @@
-```ECL:
+````ECL:
 title: Zephyr Analysis
 kind: variant
 description: |
@@ -80,7 +80,7 @@ options:
   description: |
     This option prevents ECLAIR from visiting the top level declarations of
     external files.
-```
+````
 
 if(zephyr_adopted_code, eval_file("common/adopted_code.ecl"))
 if(zephyr_adopted_deviations, eval_file("common/adopted_deviations.ecl"))
@@ -100,14 +100,12 @@ if(exclude_build_tree, progn(
 
 # from application-only variant
 -setq=app_dir,getenv("ZEPHYR_WORKBENCH_PROJECT_ROOT_DIR")
--file_tag+={application_files, concat("^", app_dir, ".*$")}
 if(exclude_external_reports, progn(
-  reports({"hide", "all_exp_external"})
+  reports+({"hide", "all_exp_external"})
 ))
 if(exclude_external_frames, progn(
   frames+({"hide", "main(external)"})
 ))
 if(exclude_external_files, progn(
   source_files+({"hide", "external"})
-  source_files+({"hide", "!application_files"})
 ))

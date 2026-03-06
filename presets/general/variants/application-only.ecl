@@ -40,10 +40,11 @@ options:
 ````
 
 -setq=app_dir,getenv("ZEPHYR_WORKBENCH_PROJECT_ROOT_DIR")
--file_tag+={application_files, concat("^", app_dir, ".*$")}
+#-file_tag+={application_files, concat("^", app_dir, ".*$")}
 
 if(exclude_external_reports, progn(
-  reports({"hide", "all_exp_external"})
+  reports+({"hide", "all_exp_external"})
+#  reports+({"hide", "all_area(all_loc(file(!application_files)))"})
 ))
 
 # Hides all frames that are external to project root tree.
@@ -57,5 +58,5 @@ if(exclude_external_frames, progn(
 
 if(exclude_external_files, progn(
   source_files+({"hide", "external"})
-  source_files+({"hide", "!application_files"})
+#  source_files+({"hide", "!application_files"})
 ))
