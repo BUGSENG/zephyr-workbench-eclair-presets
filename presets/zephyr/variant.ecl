@@ -62,5 +62,8 @@ if(zephyr_common_config, eval_file("common/zephyr_common_config.ecl"))
 # TODO condition
 if(exclude_build_tree, progn(
   doc("Exclude reports located in the build tree."),
-  reports+({"hide","all_area(all_loc(top(^.*?build(/.*)?/.*$)))"})
+  reports+({"hide","all_area(all_loc(top(^.*?build(/.*)?/.*$)))"}),
+
+  frames+({"hide","main(^.*?build(/.*)?/zephyr/.*$)"}),
+  source_files+({"hide","^.*?build(/.*)?/zephyr/.*$"})
 ))

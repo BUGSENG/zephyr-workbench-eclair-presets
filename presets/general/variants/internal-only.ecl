@@ -31,13 +31,33 @@ options:
     -frames+={"hide","main(external)"}
     ```
   default: true
+- id: exclude-external-files
+  kind: flag
+  title: Do not visit external files
+  description: |
+    This option prevents ECLAIR from visiting the top level declarations of
+    external files.
 ````
 
+#-setq=app_dir,getenv("ZEPHYR_WORKBENCH_PROJECT_ROOT_DIR")
+
 if(exclude_external_reports, progn(
-  reports({"hide","all_exp_external"})
+  reports({"hide", "all_exp_external"})
 ))
 
 # Hides all frames that are external to project root tree.
 if(exclude_external_frames, progn(
-  frames({"hide","main(external)"}) # ???
+  # ??? not sure if this correct but it seems to work
+  frames+({"hide", "main(external)"})
+
+  #frames+({"hide", concat("main(!^", app_dir, ".*$)")}),
+  #print(concat("main(!^", app_dir, ".*$)"))
+))
+
+if(exclude_external_files, progn(
+  source_files({"hide", "external"})
+
+  ## TODO regex may need escaping
+  #source_files+({"hide", concat("!^", app_dir, ".*$")}),
+  #print(concat("!^", app_dir, ".*$"))
 ))
