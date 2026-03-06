@@ -50,6 +50,36 @@ options:
   default: true
   description: |
     This option excludes reports that are located in the build tree.
+
+# from the application-only variant
+- id: exclude-external-reports
+  kind: flag
+  title: Exclude external reports
+  description: |
+    Exclude reports that are located in external files.
+
+    This option is equivalent to:
+    ```
+    -reports+={"hide","all_exp_external"}
+    ```
+  default: true
+- id: exclude-external-frames
+  kind: flag
+  title: Exclude external frames
+  description: |
+    Exclude analysis frames that are located in external files.
+
+    This option is equivalent to:
+    ```
+    -frames+={"hide","main(external)"}
+    ```
+  default: true
+- id: exclude-external-files
+  kind: flag
+  title: Do not visit external files
+  description: |
+    This option prevents ECLAIR from visiting the top level declarations of
+    external files.
 ```
 
 if(zephyr_adopted_code, eval_file("common/adopted_code.ecl"))
@@ -66,4 +96,15 @@ if(exclude_build_tree, progn(
 
   frames+({"hide","main(^.*?build(/.*)?/zephyr/.*$)"}),
   source_files+({"hide","^.*?build(/.*)?/zephyr/.*$"})
+))
+
+# from application-only variant
+if(exclude_external_reports, progn(
+  reports({"hide", "all_exp_external"})
+))
+if(exclude_external_frames, progn(
+  frames+({"hide", "main(external)"})
+))
+if(exclude_external_files, progn(
+  source_files({"hide", "external"})
 ))

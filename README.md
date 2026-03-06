@@ -1,15 +1,8 @@
 # ECLAIR presets for the Zephyr Workbench
 
-> [!IMPORTANT]
-> 🚧 This repository is a **WIP** 🚧
+This repository contains reference presets to use with the ECLAIR Manager panel for users of the [Zephyr Workbench](https://z-workbench.com/).
 
-This repository contains reference presets to use with the ECLAIR Manager panel
-for users of the [Zephyr Workbench](https://z-workbench.com/).
-
-The provided presets can be found in
-- [`rulesets/`](./rulesets/)
-- [`variants/`](./variants/)
-- [`tailorings/`](./tailorings/)
+The provided presets can be found in the [`presets/`](./presets/) directory, organized in subdirectories for general-purpose presets and Zephyr-specific presets. These can be used as-is or as a starting point for creating your own custom presets.
 
 ### Preset format and conventions
 

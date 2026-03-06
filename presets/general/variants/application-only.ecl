@@ -1,5 +1,5 @@
 ````ECL:
-title: Internal-only analysis
+title: Application-only analysis
 kind: variant
 description: |
   Filter out external reports and analysis frames
