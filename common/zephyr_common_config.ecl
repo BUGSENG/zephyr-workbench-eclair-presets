@@ -1,8 +1,5 @@
 # Derived from https://github.com/zephyrproject-rtos/zephyr/blob/v4.3.0/cmake/sca/eclair/ECL/zephyr_common_config.ecl
 
--doc="Hides all reports that have all areas out of scope."
--reports+={hide,all_exp_external}
-
 -doc="The API interface files are allowed to contain unused macros."
 -config=MC.R2.5,reports+={hide, "any_area(macro(loc(top(public()||kind(pseudo)))))"}
 
@@ -95,10 +92,6 @@
 -config=MC.R21.1,macros+={relied,"^_.*$"}
 -config=MC.R21.2,declarations+={relied,"^(.*::)?_.*$"}
 -doc_end
-
--eval_file=adopted_code.ecl
--eval_file=adopted_deviations.ecl
--eval_file=deviations.ecl
 
 -doc="Hide reports marked as compliant."
 -remap_rtag={compliant,hide}
