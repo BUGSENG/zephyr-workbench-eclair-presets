@@ -4,96 +4,96 @@
 -reports+={hide,all_exp_external}
 
 -doc="The API interface files are allowed to contain unused macros."
--config="^MC[A-Z0-9]\\.R2\\.5$",reports+={hide, "any_area(macro(loc(top(public()||kind(pseudo)))))"}
+-config=MC.R2.5,reports+={hide, "any_area(macro(loc(top(public()||kind(pseudo)))))"}
 
 -doc="Several header files are meant to be included in C as well as in C++ translation units."
--config="^MC[A-Z0-9]\\.R20\\.1$",exception=extern_C
+-config=MC.R20.1,exception=extern_C
 
 -default_call_properties+="pointee_read(1..=never)"
 -default_call_properties+="pointee_write(1..=always)"
 -default_call_properties+="taken()"
 
 -doc_begin="These macros pass its first argument in a safe way to related compiler intrinsics."
--config="^MC[A-Z0-9]\\.R20\\.7$",macros={safe,"^(va_start||va_arg)$"}
+-config=MC.R20.7,macros={safe,"^(va_start||va_arg)$"}
 -doc_end
 
 -doc_begin="The value-preserving conversions of integer constants are safe"
--config="^MC[A-Z0-9]\\.R10\\.1$",etypes={safe,"any()","preserved_integer_constant()"}
--config="^MC[A-Z0-9]\\.R10\\.3$",etypes={safe,"any()","preserved_integer_constant()"}
--config="^MC[A-Z0-9]\\.R10\\.4$",etypes={safe,"any()","preserved_integer_constant()||sibling(rhs,preserved_integer_constant())"}
+-config=MC.R10.1,etypes={safe,"any()","preserved_integer_constant()"}
+-config=MC.R10.3,etypes={safe,"any()","preserved_integer_constant()"}
+-config=MC.R10.4,etypes={safe,"any()","preserved_integer_constant()||sibling(rhs,preserved_integer_constant())"}
 -doc_end
 
 -doc_begin="Some macros are deliberately compile-time constants due to project configurability."
 -macro_selector={const_wrapper_macros,"name(CONSTEXPR)"}
--config="^MC[A-Z0-9]\\.R14\\.3$",statements={safe, "node(if_stmt||conditional_operator)&&child(cond,wrapped(node(paren_expr)&&!macro(const_wrapper_macros), macro(const_wrapper_macros)))"}
+-config=MC.R14.3,statements={safe, "node(if_stmt||conditional_operator)&&child(cond,wrapped(node(paren_expr)&&!macro(const_wrapper_macros), macro(const_wrapper_macros)))"}
 -doc_end
 
 -doc="Casts to log_arg_t in logging macros are safe and expected."
--config="^MC[A-Z0-9]\\.R11\\.6$",reports+={deliberate,"any_area(any_loc(any_exp(macro(name(__LOG_ARG_CAST)))))"}
+-config=MC.R11.6,reports+={deliberate,"any_area(any_loc(any_exp(macro(name(__LOG_ARG_CAST)))))"}
 
 -doc_begin="The following function-like macros are not writable as inline functions."
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={deliberate,"name(ARG_UNUSED)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={deliberate,"name(CONSTEXPR)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={deliberate,"name(compiler_barrier)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={deliberate,"name(likely)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={deliberate,"name(unlikely)"}
+-config=MC.D4.9,macros+={deliberate,"name(ARG_UNUSED)"}
+-config=MC.D4.9,macros+={deliberate,"name(CONSTEXPR)"}
+-config=MC.D4.9,macros+={deliberate,"name(compiler_barrier)"}
+-config=MC.D4.9,macros+={deliberate,"name(likely)"}
+-config=MC.D4.9,macros+={deliberate,"name(unlikely)"}
 -doc_end
 
 -doc_begin="For the following function-like macros it should be decided whether substitution with equivalent static inline functions is wanted and feasible."
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(ATOMIC_ELEM)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(ATOMIC_MASK)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(BIT32)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(BIT64)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(BIT64_MASK)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(BIT_MASK)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(DEVICE_MMIO_GET)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(DEVICE_MMIO_MAP)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(DEVICE_MMIO_RAM_PTR)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(IN)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(LOG_CORE_INIT)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(MAX)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(MB)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(MIN)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(OUT)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_BDF)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_BDF_TO_BUS)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_BAR_64)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_BAR_ADDR)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_BAR_INVAL_FLAGS)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_BAR_IO)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_BAR_MEM)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_CAPPTR_FIRST)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_CAP_ID)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_CAP_NEXT)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_EXT_CAP_ID)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_EXT_CAP_NEXT)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(PCIE_CONF_INTR_IRQ)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(POINTER_TO_UINT)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(ROUND_DOWN)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(ROUND_UP)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(UINT_TO_POINTER)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_BOOT_VIRT_TO_PHYS)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_IRQ_TO_INTERRUPT_VECTOR)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_KERNEL_STACK_SIZE_ADJUST)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_LOG_MSG2_ALIGNED_WLEN)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_MEM_PHYS_ADDR)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_MEM_VIRT_ADDR)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_STACK_PTR_ALIGN)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_THREAD_STACK_SIZE_ADJUST)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(Z_TICK_ABS)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(ceiling_fraction)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(irq_enable)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(irq_lock)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(irq_unlock)"}
--config="^MC[A-Z0-9]\\.D4\\.9$",macros+={questionable,"name(k_panic)"}
+-config=MC.D4.9,macros+={questionable,"name(ATOMIC_ELEM)"}
+-config=MC.D4.9,macros+={questionable,"name(ATOMIC_MASK)"}
+-config=MC.D4.9,macros+={questionable,"name(BIT32)"}
+-config=MC.D4.9,macros+={questionable,"name(BIT64)"}
+-config=MC.D4.9,macros+={questionable,"name(BIT64_MASK)"}
+-config=MC.D4.9,macros+={questionable,"name(BIT_MASK)"}
+-config=MC.D4.9,macros+={questionable,"name(DEVICE_MMIO_GET)"}
+-config=MC.D4.9,macros+={questionable,"name(DEVICE_MMIO_MAP)"}
+-config=MC.D4.9,macros+={questionable,"name(DEVICE_MMIO_RAM_PTR)"}
+-config=MC.D4.9,macros+={questionable,"name(IN)"}
+-config=MC.D4.9,macros+={questionable,"name(LOG_CORE_INIT)"}
+-config=MC.D4.9,macros+={questionable,"name(MAX)"}
+-config=MC.D4.9,macros+={questionable,"name(MB)"}
+-config=MC.D4.9,macros+={questionable,"name(MIN)"}
+-config=MC.D4.9,macros+={questionable,"name(OUT)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_BDF)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_BDF_TO_BUS)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_BAR_64)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_BAR_ADDR)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_BAR_INVAL_FLAGS)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_BAR_IO)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_BAR_MEM)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_CAPPTR_FIRST)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_CAP_ID)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_CAP_NEXT)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_EXT_CAP_ID)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_EXT_CAP_NEXT)"}
+-config=MC.D4.9,macros+={questionable,"name(PCIE_CONF_INTR_IRQ)"}
+-config=MC.D4.9,macros+={questionable,"name(POINTER_TO_UINT)"}
+-config=MC.D4.9,macros+={questionable,"name(ROUND_DOWN)"}
+-config=MC.D4.9,macros+={questionable,"name(ROUND_UP)"}
+-config=MC.D4.9,macros+={questionable,"name(UINT_TO_POINTER)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_BOOT_VIRT_TO_PHYS)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_IRQ_TO_INTERRUPT_VECTOR)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_KERNEL_STACK_SIZE_ADJUST)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_LOG_MSG2_ALIGNED_WLEN)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_MEM_PHYS_ADDR)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_MEM_VIRT_ADDR)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_STACK_PTR_ALIGN)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_THREAD_STACK_SIZE_ADJUST)"}
+-config=MC.D4.9,macros+={questionable,"name(Z_TICK_ABS)"}
+-config=MC.D4.9,macros+={questionable,"name(ceiling_fraction)"}
+-config=MC.D4.9,macros+={questionable,"name(irq_enable)"}
+-config=MC.D4.9,macros+={questionable,"name(irq_lock)"}
+-config=MC.D4.9,macros+={questionable,"name(irq_unlock)"}
+-config=MC.D4.9,macros+={questionable,"name(k_panic)"}
 -doc_end
 
 -doc="Use of CODE_UNREACHABLE is defensive programming."
--config="^MC[A-Z0-9]\\.R2\\.1$",reports+={safe,"any_area(any_loc(any_exp(macro(name(CODE_UNREACHABLE)))))"}
+-config=MC.R2.1,reports+={safe,"any_area(any_loc(any_exp(macro(name(CODE_UNREACHABLE)))))"}
 
 -doc_begin="Identifers beginning with _ are tolerated."
--config="^MC[A-Z0-9]\\.R21\\.1$",macros={relied,"^_.*$"}
--config="^MC[A-Z0-9]\\.R21\\.2$",declarations={relied,"^(.*::)?_.*$"}
+-config=MC.R21.1,macros={relied,"^_.*$"}
+-config=MC.R21.2,declarations={relied,"^(.*::)?_.*$"}
 -doc_end
 
 -eval_file=adopted_code.ecl
