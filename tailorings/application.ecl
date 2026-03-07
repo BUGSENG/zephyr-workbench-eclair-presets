@@ -6,8 +6,7 @@ description: |
 
   This presets includes common tailoring settings for Zephyr projects, derived from the [Zephyr ECLAIR integration](https://github.com/zephyrproject-rtos/zephyr/tree/v4.3.0/cmake/sca/eclair/ECL) as of [Zephyr 4.3.0](https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.3.0)).
 authors:
-- Zephyr Project
-- BUGSENG s.r.l.
+- BUGSENG
 provides: []
 requires: []
 deps: [] # TODO

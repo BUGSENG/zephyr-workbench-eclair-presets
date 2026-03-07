@@ -6,7 +6,7 @@ description: |
 
   This variant includes common configurations used for the analysis of Zephyr projects.
 authors:
-- BUGSENG s.r.l.
+- BUGSENG
 provides: []
 requires: []
 deps:

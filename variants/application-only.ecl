@@ -6,7 +6,7 @@ description: |
 
   This preset allows to filter out reports and analysis frames that are located externally to the project root tree (`-project_root` eclair option).
 authors:
-- BUGSENG s.r.l.
+- BUGSENG
 requires: []
 options:
 - id: exclude-external-reports
