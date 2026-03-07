@@ -951,7 +951,7 @@ options:
         ```ecl
         -disable=MC4.R15.5
         ```
-      default: true
+      default: false
     - id: MC4.R15.6
       kind: flag
       title: The body of an iteration-statement or a selection-statement shall be a compound-statement
