@@ -442,7 +442,7 @@ useful diagnostic messages to the user."
 #
 
 -doc_begin="do-while-[01] is a well recognized loop idiom by the Zephyr community."
--loop_idioms={do_stmt, "literal(0)||literal(1)"}
+-loop_idioms+={do_stmt, "literal(0)||literal(1)"}
 -doc_end
 -doc_begin="while-[01] is a well recognized loop idiom by the Zephyr community."
 -loop_idioms+={while_stmt, "literal(0)||literal(1)"}
@@ -459,6 +459,6 @@ useful diagnostic messages to the user."
 programmers:no developers' confusion is not possible. In addition, adopted code
 is assumed to work as is. Reports that are fully contained in adopted code are
 hidden/tagged with the 'adopted' tag."
--service_selector={developer_confusion_guidelines,"MC.R2.1|MC.R2.2|MC.R2.3|MC.R2.4|MC.R2.5|MC.R2.6|MC.R2.7|MC.R4.1|MC.R5.3|MC.R5.6|MC.R5.7|MC.R5.8|MC.R5.9|MC.R7.1|MC.R7.2|MC.R7.3|MC.R8.7|MC.R8.8|MC.R8.9|MC.R8.11|MC.R8.12|MC.R8.13|MC.R9.3|MC.R9.4|MC.R9.5|MC.R10.2|MC.R10.5|MC.R10.6|MC.R10.7|MC.R10.8|MC.R11.9|MC.R12.1|MC.R12.3|MC.R12.4|MC.R13.5|MC.R14.1|MC.R14.2|MC.R14.3|MC.R15.1|MC.R15.2|MC.R15.3|MC.R15.4|MC.R15.5|MC.R15.6|MC.R15.7|MC.R16.1|MC.R16.2|MC.R16.3|MC.R16.4|MC.R16.5|MC.R16.6|MC.R16.7|MC.R17.7|MC.R17.8|MC.R18.4|MC.R18.5"}
+-service_selector={developer_confusion_guidelines,"MC.R2.1||MC.R2.2||MC.R2.3||MC.R2.4||MC.R2.5||MC.R2.6||MC.R2.7||MC.R4.1||MC.R5.3||MC.R5.6||MC.R5.7||MC.R5.8||MC.R5.9||MC.R7.1||MC.R7.2||MC.R7.3||MC.R8.7||MC.R8.8||MC.R8.9||MC.R8.11||MC.R8.12||MC.R8.13||MC.R9.3||MC.R9.4||MC.R9.5||MC.R10.2||MC.R10.5||MC.R10.6||MC.R10.7||MC.R10.8||MC.R11.9||MC.R12.1||MC.R12.3||MC.R12.4||MC.R13.5||MC.R14.1||MC.R14.2||MC.R14.3||MC.R15.1||MC.R15.2||MC.R15.3||MC.R15.4||MC.R15.5||MC.R15.6||MC.R15.7||MC.R16.1||MC.R16.2||MC.R16.3||MC.R16.4||MC.R16.5||MC.R16.6||MC.R16.7||MC.R17.7||MC.R17.8||MC.R18.4||MC.R18.5"}
 -config=developer_confusion_guidelines,reports+={relied,adopted_report}
 -doc_end
