@@ -12,6 +12,12 @@ requires: []
 deps:
 - extra.ecl
 options:
+- id: zephyr-toolchain
+  kind: flag
+  title: Zephyr toolchain
+  default: true
+  description: |
+    This option enables Zephyr-specific toolchain settings.
 - id: zephyr-adopted-code
   kind: flag
   title: Tag Zephyr adopted code
@@ -83,6 +89,7 @@ options:
   default: true
 ````
 
+if(zephyr_toolchain, eval_file("../common/toolchain.ecl"))
 if(zephyr_adopted_code, eval_file("../common/adopted_code.ecl"))
 if(zephyr_adopted_deviations, eval_file("../common/adopted_deviations.ecl"))
 if(zephyr_call_properties, eval_file("../common/call_properties.ecl"))
