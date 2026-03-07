@@ -33,13 +33,13 @@ Declarations in these files not necessarily have to be referenced."
 -config=MC.R8.7,declarations+={safe,"loc(top(public()))"}
 
 -doc="Syscall declarations are automatically generated all with the extern qualifier. For the ones with internal linkage the use of the extern qualifier is a violation of rule 8.8."
--config=MC.R8.8,declarations={relied, "^z_vrfy_.*$||^z_impl_.*$"}
+-config=MC.R8.8,declarations+={relied, "^z_vrfy_.*$||^z_impl_.*$"}
 
 -doc="Function hash, that is automatically generated, does not use the parameter \"len\" in all its definitions."
 -config=MC.R2.7,declarations+={relied,"context(^hash\\(const char\\*, size_t\\)$)&&name(len)"}
 
 -doc="Function \"z_object_lookup\", that is automatically generated, uses single-statement bodies not enclosed in braces."
--config=MC.R15.6,reports={relied, "all_area(context(^z_object_lookup\\(const char\\*, size_t\\)$))"}
+-config=MC.R15.6,reports+={relied, "all_area(context(^z_object_lookup\\(const char\\*, size_t\\)$))"}
 
 -doc="The following declarations are in generated files: not in all configuration they are implemented.
     Chainging the generators could be dangerous and the advantages in enforcing the rule do not outweight these dangers."

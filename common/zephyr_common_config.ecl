@@ -7,25 +7,25 @@
 -config=MC.R2.5,reports+={hide, "any_area(macro(loc(top(public()||kind(pseudo)))))"}
 
 -doc="Several header files are meant to be included in C as well as in C++ translation units."
--config=MC.R20.1,exception=extern_C
+-config=MC.R20.1,exception+=extern_C
 
 -default_call_properties+="pointee_read(1..=never)"
 -default_call_properties+="pointee_write(1..=always)"
 -default_call_properties+="taken()"
 
 -doc_begin="These macros pass its first argument in a safe way to related compiler intrinsics."
--config=MC.R20.7,macros={safe,"^(va_start||va_arg)$"}
+-config=MC.R20.7,macros+={safe,"^(va_start||va_arg)$"}
 -doc_end
 
 -doc_begin="The value-preserving conversions of integer constants are safe"
--config=MC.R10.1,etypes={safe,"any()","preserved_integer_constant()"}
--config=MC.R10.3,etypes={safe,"any()","preserved_integer_constant()"}
--config=MC.R10.4,etypes={safe,"any()","preserved_integer_constant()||sibling(rhs,preserved_integer_constant())"}
+-config=MC.R10.1,etypes+={safe,"any()","preserved_integer_constant()"}
+-config=MC.R10.3,etypes+={safe,"any()","preserved_integer_constant()"}
+-config=MC.R10.4,etypes+={safe,"any()","preserved_integer_constant()||sibling(rhs,preserved_integer_constant())"}
 -doc_end
 
 -doc_begin="Some macros are deliberately compile-time constants due to project configurability."
 -macro_selector={const_wrapper_macros,"name(CONSTEXPR)"}
--config=MC.R14.3,statements={safe, "node(if_stmt||conditional_operator)&&child(cond,wrapped(node(paren_expr)&&!macro(const_wrapper_macros), macro(const_wrapper_macros)))"}
+-config=MC.R14.3,statements+={safe, "node(if_stmt||conditional_operator)&&child(cond,wrapped(node(paren_expr)&&!macro(const_wrapper_macros), macro(const_wrapper_macros)))"}
 -doc_end
 
 -doc="Casts to log_arg_t in logging macros are safe and expected."
@@ -92,8 +92,8 @@
 -config=MC.R2.1,reports+={safe,"any_area(any_loc(any_exp(macro(name(CODE_UNREACHABLE)))))"}
 
 -doc_begin="Identifers beginning with _ are tolerated."
--config=MC.R21.1,macros={relied,"^_.*$"}
--config=MC.R21.2,declarations={relied,"^(.*::)?_.*$"}
+-config=MC.R21.1,macros+={relied,"^_.*$"}
+-config=MC.R21.2,declarations+={relied,"^(.*::)?_.*$"}
 -doc_end
 
 -eval_file=adopted_code.ecl

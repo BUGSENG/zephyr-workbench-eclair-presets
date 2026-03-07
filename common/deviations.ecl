@@ -140,9 +140,9 @@ dimension is higher than omitting the dimension."
 #
 
 -doc_begin="The value-preserving conversions of integer constants are safe"
--config=MC.R10.1,etypes={safe,"any()","preserved_integer_constant()"}
--config=MC.R10.3,etypes={safe,"any()","preserved_integer_constant()"}
--config=MC.R10.4,etypes={safe,"any()","preserved_integer_constant()||sibling(rhs,preserved_integer_constant())"}
+-config=MC.R10.1,etypes+={safe,"any()","preserved_integer_constant()"}
+-config=MC.R10.3,etypes+={safe,"any()","preserved_integer_constant()"}
+-config=MC.R10.4,etypes+={safe,"any()","preserved_integer_constant()||sibling(rhs,preserved_integer_constant())"}
 -doc_end
 
 -doc_begin="Shifting non-negative integers to the right is safe."
@@ -382,7 +382,7 @@ unexpected result when the structure is given as argument to a sizeof() operator
 as function arguments; (2) as macro arguments; (3) as array indices; (4) as lhs
 in assignments; (5) as initializers, possibly designated, in initalizer lists;
 (6) as the constant expression in a switch clause label."
--config=MC.R20.7,expansion_context=
+-config=MC.R20.7,expansion_context+=
 {safe, "context(__call_expr_arg_contexts)"},
 {safe, "left_right(^[(,\\[]$,^[),\\]]$)"},
 {safe, "context(skip(parent(__expr_non_syntactic_contexts), is(subscript)&&parent(node(array_subscript_expr))))"},
