@@ -1,5 +1,5 @@
 ```ECL:
-title: Zephyr Application Tailoring
+title: Zephyr Tailoring
 kind: tailoring
 description: |
   Tailoring for Zephyr applications.

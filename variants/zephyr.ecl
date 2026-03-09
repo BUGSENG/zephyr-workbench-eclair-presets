@@ -1,10 +1,11 @@
 ````ECL:
-title: Application Analysis
+title: Zephyr Application
 kind: variant
 description: |
-  Common settings for Zephyr applications analysis.
+  Common settings for Zephyr applications.
 
-  This variant includes common configurations used for the analysis of Zephyr projects.
+  This variant includes common configurations used for the analysis of Zephyr
+  projects.
 authors:
 - BUGSENG
 provides: []
